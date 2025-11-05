@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DrivePulse</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="logo" aria-hidden="true" style="width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;">
+        <!-- small badge icon -->
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="#021025" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
+      </div>
+      <div>
+        <h1>Driver Fatigue Dashboard</h1>
+        <div class="sub" style="font-size:13px;color:var(--muted)"></div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px">
+      <div id="status" class="sub">Connecting…</div>
+      <!-- compact alert badge (hidden when zero) -->
+      <div id="alertBadge" style="display:none;background:linear-gradient(90deg,var(--danger),#ff8a8a);padding:8px 12px;border-radius:999px;font-weight:700;color:#021025">0</div>
+    </div>
+  </header>
+
+  <main>
+    <section id="metrics">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div>
+          <h2 style="margin:0">Latest Metrics</h2>
+          <div class="sub" style="margin-top:4px"></div>
+        </div>
+
+        <!-- small stat row -->
+        <div class="stat-row" aria-hidden="true">
+          <div class="stat"><div class="val" id="avgBlink">—</div><div class="lbl">Avg Blink (ms)</div></div>
+          <div class="stat"><div class="val" id="avgReaction">—</div><div class="lbl">Avg Reaction (ms)</div></div>
+          <div class="stat"><div class="val" id="avgSteer">—</div><div class="lbl">Steering Corr/min</div></div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="metricsTable">
+          <thead><tr><th>Timestamp</th><th>Type</th><th>Value</th><th>Info</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
