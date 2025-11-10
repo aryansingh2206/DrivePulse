@@ -3,38 +3,47 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DrivePulse</title>
+  <title>DrivePulse — Smart Driver Fatigue</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <div style="display:flex;align-items:center;gap:14px">
-      <div class="logo" aria-hidden="true" style="width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;">
-        <!-- small badge icon -->
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="#021025" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 6c6 0 11 5 11 11s-5 11-11 11-11-5-11-11 5-11 11-11z" />
+        </svg>
       </div>
       <div>
-        <h1>Driver Fatigue Dashboard</h1>
-        <div class="sub" style="font-size:13px;color:var(--muted)"></div>
+        <h1>DrivePulse</h1>
+        <div class="sub">Real-time Fatigue Detection</div>
       </div>
     </div>
 
-    <div style="display:flex;align-items:center;gap:12px">
+    <div class="header-right">
       <div id="status" class="sub">Connecting…</div>
-      <!-- compact alert badge (hidden when zero) -->
-      <div id="alertBadge" style="display:none;background:linear-gradient(90deg,var(--danger),#ff8a8a);padding:8px 12px;border-radius:999px;font-weight:700;color:#021025">0</div>
+      <div id="alertBadge" class="alert-badge" style="display:none">0</div>
     </div>
   </header>
 
   <main>
-    <section id="metrics">
+    <aside class="card alerts-card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div><h2 style="margin:0">Alerts</h2><div class="sub">Critical events</div></div>
+        <div id="alertCountCompact" class="sub"> </div>
+      </div>
+      <div id="alertList" class="alerts-list">
+        <div class="alert-empty">No alerts yet — system nominal.</div>
+      </div>
+    </aside>
+
+    <section class="card metrics-card">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
         <div>
           <h2 style="margin:0">Latest Metrics</h2>
-          <div class="sub" style="margin-top:4px"></div>
+          <div class="sub" style="margin-top:4px">Live sensor stream from C++ simulator</div>
         </div>
 
-        <!-- small stat row -->
         <div class="stat-row" aria-hidden="true">
           <div class="stat"><div class="val" id="avgBlink">—</div><div class="lbl">Avg Blink (ms)</div></div>
           <div class="stat"><div class="val" id="avgReaction">—</div><div class="lbl">Avg Reaction (ms)</div></div>
